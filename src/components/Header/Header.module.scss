@@ -1,0 +1,18 @@
+.header {
+    width: 100%;
+    background: #415a77;
+    
+    &__wrapper {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__auth_btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}

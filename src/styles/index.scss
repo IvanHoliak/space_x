@@ -1,0 +1,33 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    color: #0d1b2a;
+    background-color: #e0e1dd;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: #0d1b2a;
+}
+
+button {
+    border: none;
+    color: #fff;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.row {
+    margin: 0 16px;
+}

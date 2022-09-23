@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+
+    &__item {
+        max-width: calc(1024px / 4);
+        padding: 10px;    
+        background: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
