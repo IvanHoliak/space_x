@@ -14,3 +14,10 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 553px) {
+    .list {
+        justify-content: center;
+        align-items: center;
+    }
+}

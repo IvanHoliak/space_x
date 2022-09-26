@@ -5,9 +5,9 @@ import Home from "../pages/Home/Home";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route element={<Layout />}>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/:id" element={<Dragon />}></Route>
+        <Route path="/" element={<Layout />}>
+            <Route index element={<Home />}></Route>
+            <Route path=":id" element={<Dragon />}></Route>
             <Route path="*" element={<Navigate to="/" replace />}/>
         </Route>
     )

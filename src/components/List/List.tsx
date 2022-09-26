@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { IDragons } from "../../pages/Home/Home";
+import { IDragon } from "../../types";
 import styles from "./List.module.scss";
 
 interface IList {
-    dragons: IDragons[];
+    dragons: IDragon[];
 };
 
 const List: FC<IList> = ({dragons}) => {
