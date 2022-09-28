@@ -34,3 +34,7 @@ button {
 .row {
     margin: 0 16px;
 }
+
+body.modal_open {
+    overflow: hidden;
+}

@@ -4,7 +4,7 @@ import { dragonAPI } from "../../services/DragonService";
 import styles from "./Home.module.scss";
 
 const Home = () => {
-    const {data, error, isLoading, refetch} = dragonAPI.useGetAllDragonsQuery("");
+    const {data, error, isLoading} = dragonAPI.useGetAllDragonsQuery("");
 
     return (
         <section className={styles.home}>

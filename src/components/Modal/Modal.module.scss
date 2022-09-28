@@ -1,0 +1,28 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    &__window {
+        width: 450px;
+        height: max-content;
+        background: #fff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal {
+        &__window {
+            width: 90%;
+        }
+    }
+}

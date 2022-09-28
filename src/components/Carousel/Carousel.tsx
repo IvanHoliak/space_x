@@ -1,4 +1,4 @@
-import { FC, useState, useRef, useEffect } from "react";
+import React, { FC, useState, useRef, useEffect } from "react";
 import styles from "./Carousel.module.scss";
 
 import ArrowLeft from "../../assets/svg/arrow_left.svg";
@@ -48,36 +48,47 @@ const Carousel: FC<ICarousel> = ({images}) => {
     if(!images.length) return null;
 
     return (
-        <div className={styles.carousel}>
-            {currentImage !== 0 && (
-                <button 
-                    className={`${styles.carousel__btns} ${styles.carousel__btns_left}`}
-                    onClick={onClickHandlerLeft}
-                >
-                    <img src={ArrowLeft} alt="Slider Arrow Lift" />
-                </button>
-            )}
-            {currentImage !== images.length - 1 && (
-                <button 
-                    className={`${styles.carousel__btns} ${styles.carousel__btns_right}`}
-                    onClick={onClickHandlerRight}
-                >
-                    <img src={ArrowRight} alt="Slider Arrow Right" />
-                </button>
-            )}
-            <div className={styles.carousel__container}>
-                <div className={styles.carousel__items} ref={refCarousel}>
-                    {images.map(image => (
-                        <div 
-                        key={image}
-                            className={styles.carousel__items_item}
-                        >
-                            <img src={image} alt="Space X Dragon" />
-                        </div>
-                    ))}
+        <>
+            <div className={styles.carousel}>
+                {currentImage !== 0 && (
+                    <button 
+                        className={`${styles.carousel__btns} ${styles.carousel__btns_left}`}
+                        onClick={onClickHandlerLeft}
+                    >
+                        <img src={ArrowLeft} alt="Slider Arrow Lift" />
+                    </button>
+                )}
+                {currentImage !== images.length - 1 && (
+                    <button 
+                        className={`${styles.carousel__btns} ${styles.carousel__btns_right}`}
+                        onClick={onClickHandlerRight}
+                    >
+                        <img src={ArrowRight} alt="Slider Arrow Right" />
+                    </button>
+                )}
+                <div className={styles.carousel__container}>
+                    <div className={styles.carousel__items} ref={refCarousel}>
+                        {images.map(image => (
+                            <div 
+                                key={image}
+                                className={styles.carousel__items_item}
+                            >
+                                <img src={image} alt="Space X Dragon" />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className={styles.dots}>
+                {images.map((image, index) => (
+                    <div 
+                        key={image}
+                        className={`${styles.dots_dot} ${index === currentImage ? styles.active : ""}`}
+                        onClick={(e: React.MouseEvent<HTMLDivElement>) => setCurrentImage(index)}
+                    ></div>
+                ))}
+            </div>
+        </>
     );
 };
 

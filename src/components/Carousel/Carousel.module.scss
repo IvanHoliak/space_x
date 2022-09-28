@@ -57,6 +57,31 @@
         }
     }
 }
+.dots {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    &_dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #000;
+        opacity: .4;
+        cursor: pointer;
+        transition: opacity .3s ease;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &_dot.active {
+        opacity: 1;
+    }
+}
 
 @media (max-width: 767px) {
     .carousel {
