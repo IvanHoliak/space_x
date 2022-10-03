@@ -1,13 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AuthType } from "../../types";
 
 export interface IModalState {
     isOpen: boolean;
-    type: "login" | "registration";
+    type: AuthType;
 };
 
 const initialState: IModalState = {
     isOpen: false,
-    type: "login"
+    type: AuthType.login
 };
 
 const modalReducer = createSlice({

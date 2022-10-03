@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { FC, useEffect, useState } from "react";
 import useAction from "../../hooks/useAction";
-import { auth } from "../../utils/firebase";
+import { AuthType } from "../../types";
+import authorization from "../../utils/auth";
 import styles from "./FormAuth.module.scss";
 
 interface IFiendValue {
@@ -31,7 +31,8 @@ const Registration: FC = () => {
         }
     });
     const [isActive, setIsActive] = useState<boolean>(false);
-    const {setIsOpen, login} = useAction();
+    const [error, setError] = useState<boolean>(false);
+    const {setIsOpen, auth} = useAction();
 
     const onChangeInputHandler = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
         e.preventDefault();
@@ -103,10 +104,15 @@ const Registration: FC = () => {
 
     const onSubmitHandler = async(e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        const createUser = await createUserWithEmailAndPassword(auth, formValue.email.value, formValue.password.value);
-        const accessToken: string = await createUser.user.getIdToken();
-        login({uid: createUser.user.uid, accessToken, email: createUser.user.email ?? ""});
-        setIsOpen({isOpen: false, type: "registration"});
+        const reg = await authorization(formValue.email.value, formValue.password.value, AuthType.registration);
+        
+        if(reg){
+            auth(reg);
+            setIsOpen({isOpen: false, type: AuthType.registration});
+            setError(false);
+        }else{
+            setError(true);
+        };
     };
 
     return (
@@ -141,9 +147,10 @@ const Registration: FC = () => {
                         onClick={onSubmitHandler}
                         type="submit"
                         disabled={!isActive}
-                    >
+                        >
                         OK
                     </button>
+                    {error && (<p style={{color: "red", fontSize: 16}}>Some error, retry late</p>)}
                 </form>
             </div>
         </div>

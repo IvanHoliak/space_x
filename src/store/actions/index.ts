@@ -5,5 +5,6 @@ import { IModalState } from "../reducers/modal.slice";
 export const setIsOpen = createAction<IModalState>("modal/setIsOpen");
 
 /* User */
-export const login = createAction<{uid: string, accessToken: string, email: string}>("user/login");
+export const auth = createAction<boolean>("user/auth");
+export const login = createAction<{uid: string, email: string}>("user/login");
 export const logout = createAction("user/logout");

@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import useAction from "../../hooks/useAction";
-import { auth } from "../../utils/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import styles from "./FormAuth.module.scss";
+import authorization from "../../utils/auth";
+import { AuthType } from "../../types";
 
 interface IFiendValue {
     value: string;
@@ -26,7 +26,8 @@ const Login: FC = () => {
         }
     });
     const [isActive, setIsActive] = useState<boolean>(false);
-    const {setIsOpen, login} = useAction();
+    const [error, setError] = useState<boolean>(false);
+    const {setIsOpen, auth} = useAction();
 
     const onChangeInputHandler = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
         e.preventDefault();
@@ -74,10 +75,15 @@ const Login: FC = () => {
 
     const onSubmitHandler = async(e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        const createUser = await signInWithEmailAndPassword(auth, formValue.email.value, formValue.password.value);
-        const accessToken: string = await createUser.user.getIdToken();
-        login({uid: createUser.user.uid, accessToken, email: createUser.user.email ?? ""});
-        setIsOpen({isOpen: false, type: "login"});
+        const reg = await authorization(formValue.email.value, formValue.password.value, AuthType.login);
+        
+        if(reg){
+            auth(reg);
+            setIsOpen({isOpen: false, type: AuthType.login});
+            setError(false);
+        }else{
+            setError(true);
+        };
     };
     
     return (
@@ -109,6 +115,7 @@ const Login: FC = () => {
                     >
                         OK
                     </button>
+                    {error && (<p style={{color: "red", fontSize: 16, textAlign: "center"}}>Some error, retry late</p>)}
                 </form>
             </div>
         </div>

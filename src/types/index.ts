@@ -73,3 +73,11 @@ export interface IDragon {
     description: string,
     id: string
 };
+
+// ENUMS
+
+export enum AuthType {
+    login = "login",
+    registration = "registration",
+    logout = "logout"
+};
