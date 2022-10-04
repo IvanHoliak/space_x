@@ -14,7 +14,6 @@ export const dragonAPI = createApi({
         }),
         getDragonDetails: build.query<IDragon, string | undefined>({
             query: (id) => {
-                console.log(id);
                 return {
                     url: `/dragons/${id}`
                 }

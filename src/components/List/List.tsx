@@ -16,7 +16,6 @@ const List: FC<IList> = ({dragons}) => {
                     className={styles.list__item}
                     to={`${dragon.id}`}
                 >
-                    {/* <img src={dragon.flickr_images[0]} alt={`Space X ${dragon.name} Rocket`} style={{maxWidth: 236}}/> */}
                     <h2>{dragon.name}</h2>
                 </Link>
             ))}

@@ -1,16 +1,21 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { IDragon } from "../../types";
 import Carousel from "../Carousel/Carousel";
 import styles from "./DragonContent.module.scss";
 import LinkArrow from "../../assets/svg/arrow_link.svg";
+import useAppSelector from "../../hooks/useAppSelector";
+import AddFavoritesButton from "../Button/AddFavoritesButton";
 
 interface IDragonContent {
     data: IDragon
 };
 
 const DragonContent: FC<IDragonContent> = ({data}) => {
+    const {isAuth, id} = useAppSelector(state => state.user);
+
     return (
         <div className={styles.dragon__content}>
+            {isAuth && <AddFavoritesButton userId={id as string} dragonId={data.id} title={data.name}/>}
             <a href={data.wikipedia} target="_blank" rel="noreferrer">
                 <div className={styles.dragon__content_header}>
                     <h2 className={styles.dragon__content_header_title}>

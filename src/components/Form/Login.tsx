@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import useAction from "../../hooks/useAction";
-import styles from "./FormAuth.module.scss";
+import styles from "./Form.module.scss";
 import authorization from "../../utils/auth";
 import { AuthType } from "../../types";
 

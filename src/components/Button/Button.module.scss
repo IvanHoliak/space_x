@@ -9,7 +9,18 @@
     opacity: 1;
     transition: opacity .2s ease;
 
+    a {
+        color: #fff;
+    }
+
     &:hover {
         opacity: .7;
     }
+}
+
+.favorites {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }

@@ -2,8 +2,10 @@ import { FC } from "react";
 import { createPortal } from "react-dom";
 import useAction from "../../hooks/useAction";
 import useAppSelector from "../../hooks/useAppSelector";
-import Login from "../FormAuth/Login";
-import Registration from "../FormAuth/Registration";
+import { AuthType } from "../../types";
+import Login from "../Form/Login";
+import Registration from "../Form/Registration";
+import Update from "../Form/Update";
 import styles from "./Modal.module.scss";
 
 const modalRoot: HTMLElement | null = document.getElementById("modal");
@@ -28,8 +30,9 @@ const Modal: FC = () => {
                 className={styles.modal__window}
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
             >
-                {type === "login" && <Login />}
-                {type === "registration" && <Registration />}
+                {type === AuthType.login && <Login />}
+                {type === AuthType.registration && <Registration />}
+                {type === AuthType.update && <Update />}
             </div>
         </div>,
         modalRoot

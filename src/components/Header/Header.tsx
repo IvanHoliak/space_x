@@ -8,7 +8,7 @@ import styles from "./Header.module.scss";
 
 
 const Header: FC = () => {
-    const {isAuth, id} = useAppSelector(state => state.user);
+    const {isAuth} = useAppSelector(state => state.user);
 
     return (
         <>
@@ -21,10 +21,8 @@ const Header: FC = () => {
                         <div className={styles.header__auth_btns}>
                             {isAuth ? (
                                 <>
+                                    <Button title="Logout" type={AuthType.profile}/>               
                                     <Button title="Logout" type={AuthType.logout}/>
-                                    <Link to={`/user/${id}`}>
-                                        <h1>To Profile</h1>
-                                    </Link>                 
                                 </>
                             ) : (
                                 <>

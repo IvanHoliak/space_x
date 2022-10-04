@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import useAction from "../../hooks/useAction";
 import { AuthType } from "../../types";
 import authorization from "../../utils/auth";
-import styles from "./FormAuth.module.scss";
+import styles from "./Form.module.scss";
 
 interface IFiendValue {
     value: string;

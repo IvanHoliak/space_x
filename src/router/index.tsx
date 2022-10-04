@@ -8,7 +8,6 @@ import User from "../pages/User/User";
 
 const PrivateRoute: FC<{children: JSX.Element}> = ({children}) => {
     const {isAuth} = useAppSelector(state => state.user);
-    console.log(isAuth);
     if(!isAuth) return <Navigate to="/" replace />
 
     return children;

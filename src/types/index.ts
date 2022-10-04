@@ -74,10 +74,20 @@ export interface IDragon {
     id: string
 };
 
+// TYPES
+
+export type Favorites = {
+    [keyof: string]: {
+        title: string
+    }
+};
+
 // ENUMS
 
 export enum AuthType {
     login = "login",
     registration = "registration",
-    logout = "logout"
+    logout = "logout",
+    profile = "profile",
+    update = "update"
 };
