@@ -51,5 +51,6 @@ ___
 `key = REACT_APP_FIREBASE_API_KEY`, 
 `value = apiKey`  
 
-![Image alt](https://i.ibb.co/3ckB8LP/netlify.png")
+![Image alt](https://i.ibb.co/3ckB8LP/netlify.png")  
+
 4) Deploy site. 
