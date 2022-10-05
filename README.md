@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+## Space X App 🚀 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Description
+___
+**This site shows a list of Space X Dragons.**
+**Pagination of data about each Space X Dragon.**
+**Create and edit an account via Firebase Auth.**
+**Adding and removing favorite Space X Dragons.**
 
-## Available Scripts
+#### Stack
+___
+**-Typescript**
+**-React**
+**-RTK, RTK Query**
+**-SCSS**
+**-Firebase auth, Firebase realtime db**
+    
+#### Installation:
+___
+1) Clone this repo.
+2) `npm i` - downlaod all dependencies.
+3) Create `.env.local` file.
+4) Sign up for a Firebase account and add a new Firebase Project.
+5) Write the parameters taken from the firebase configuration to the `.env.local` file
+![Image alt](https://blog.logrocket.com/wp-content/uploads/2020/03/web-config-firebase-console-e1629488970325.png)
+![Image alt](https://i.ibb.co/19xQq5R/envlocal.png )
+6) `npm i start` - for development.
+7) `npm i build` - build project for deploy.
 
-In the project directory, you can run:
+#### Git
+___
+1) Create new repo.
+2) Use git recommendation to push project to repository.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Deploy
+___
+1) Check out Netlify via GitHub.
+2) Add new site > import an existing project.
+3) Write to environment variables all data from .env.local files like:
+`key = REACT_APP_FIREBASE_API_KEY`, 
+`value = apiKey`
+![Image alt](https://i.ibb.co/3ckB8LP/netlify.png")
+4) Deploy site. 
