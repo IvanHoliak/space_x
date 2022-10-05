@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useAction from "../../hooks/useAction";
 import useAppSelector from "../../hooks/useAppSelector";
 import { AuthType } from "../../types";
