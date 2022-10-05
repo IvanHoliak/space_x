@@ -33,7 +33,8 @@ ___
 5) Write the parameters taken from the firebase configuration to the `.env.local` file  
 
 ![Image alt](https://blog.logrocket.com/wp-content/uploads/2020/03/web-config-firebase-console-e1629488970325.png)
-![Image alt](https://i.ibb.co/19xQq5R/envlocal.png )
+![Image alt](https://i.ibb.co/19xQq5R/envlocal.png )  
+
 6) `npm i start` - for development.
 7) `npm i build` - build project for deploy.
 
