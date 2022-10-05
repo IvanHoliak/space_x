@@ -14,7 +14,7 @@ const Profile: FC = () => {
             <div className={styles.user__profile_media}>
                 {photoURL ? (
                     <div className={styles.user__profile_media__photo_wrapper}>
-                        <img src={UserPhoto} alt="User" />
+                        <img src={photoURL} alt="User" />
                     </div>
                 ) : (
                     <div className={styles.user__profile_media__photo_wrapper}>

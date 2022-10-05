@@ -1,3 +1,4 @@
+import { getAuth, updateEmail, updatePassword, updateProfile, User, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 import { getDatabase, ref, update, onValue, remove } from "firebase/database";
 import { Favorites } from "../types";
 
@@ -43,4 +44,36 @@ export const getUserFavorites: GetUserFavorites = (userId: string, callback) => 
     onValue(ref(db, `users/${userId}/favorites`), value => {
         callback(value.val());
     });
+};
+
+type UpdateUserProfile = (name: string, email: string, photoURL: string, old_password: string, password: string) => Promise<boolean>;
+
+export const updateUserProfile: UpdateUserProfile = async(name, email, photoURL, old_password, password) => {
+    const auth = getAuth();
+    const credential = EmailAuthProvider.credential(
+        email,
+        old_password
+    );
+    try{
+        if(name.length || photoURL.length){
+            await updateProfile(auth.currentUser as User, {
+                displayName: name,
+                photoURL
+            });
+        };
+    
+        if(email.length){
+            await updateEmail(auth.currentUser as User, email);
+        };
+    
+        if(old_password.length || password.length){
+            await reauthenticateWithCredential(auth.currentUser as User, credential);
+            await updatePassword(auth.currentUser as User, password);
+        };
+
+        return true;
+    }catch(e){
+        console.log(e);
+        return false;
+    };
 };
