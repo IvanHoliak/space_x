@@ -9,11 +9,16 @@ ___
 
 #### Stack
 ___
-**-Typescript**
-**-React**
-**-RTK, RTK Query**
-**-SCSS**
-**-Firebase auth, Firebase realtime db**
+**-Typescript**  
+
+**-React**  
+
+**-RTK, RTK Query**  
+
+**-SCSS**  
+
+**-Firebase auth, Firebase realtime db**  
+
     
 #### Installation:
 ___
